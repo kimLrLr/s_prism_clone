@@ -1,0 +1,295 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img{
+    width: 100%;
+    display: block;
+}
+
+a{
+    text-decoration: none;
+    color: #1d1d1d;
+}
+
+ul, li{
+    list-style: none;
+}
+
+body{
+    overflow-x: hidden;
+    /* =>바디 기준으로 하단 가로스크롤을 보이지 않게 만들어줌 */
+}
+
+.wrap{
+    overflow: hidden;
+}
+
+header{
+    width: 100%;
+    position: fixed;
+    top: 100px;
+    left: 0;
+    padding: 0 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 10;
+}
+
+.main_logo{
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.center_logo{
+    font-size: 28px;
+}
+
+.menu_btn{
+    font-size: 28px;
+}
+
+.bar{
+    width: 40px;
+    height: 2px;
+    background-color: #1d1d1d;
+    margin-bottom: 8px;
+}
+
+.bar:last-child{
+    margin-bottom: 0;
+}
+
+/* menu_btn으로 숨김메뉴 start */
+
+#right_menu{
+    display: none;
+}
+
+.menu_btn{
+    cursor: pointer;
+
+    position: relative;
+
+    z-index: 10;
+}
+
+.menu_wrap{
+    background-color: #3b3b3b;
+    /* checkbox에 check가 되어있는 경우,  menu_btn의 색상 변경하는 방법..?
+       원래 배경 색은 검정색이라 버튼도 검정이면 누르기가 너무 힘들어짐..ㅜㅜ*/
+
+    width: 40%;
+    height: 960px;
+
+    position: inherit;
+    top: 0;
+    right: -100%;
+
+    text-align: left;
+    font-size: 30px;
+    transition: 0.5s;
+
+    padding: 200px 80px;
+}
+
+.menu_wrap a{
+    color: #eee;
+
+    transition-duration: 0.2s;
+}
+
+.side_menu li{
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    letter-spacing: 5px;
+    font-weight: 900;
+}
+
+.side_menu li:first-child{
+    border-bottom: 2px solid #eee;
+    width: 150px;
+}
+
+/* .side_menu li:hover{
+    border-bottom: 2px solid #eee;
+    width: 150px;
+} */
+
+.sns_menu li{
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.sns_menu li:first-child{
+    margin-top: 50px;
+}
+
+.sns_menu a{
+    color: #a1a1a1;
+}
+
+.sns_menu a:hover{
+    color: #eee;
+}
+
+
+
+#right_menu:checked ~ .menu_wrap{
+    right: 0;
+}
+
+/* header end */
+
+section{
+    height: 960px;
+    padding: 0 120px;
+}
+
+.container{
+    /* height: inherit; */
+    height: 100%;
+    border-left: 1px solid #dbdbdb;
+    border-right: 1px solid #dbdbdb;
+}
+
+.center_line{
+    background-color: #dbdbdb;
+    height: 100%;
+    width: 1px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+}
+
+.title{
+    font-size: 70px;
+    font-weight: 900;
+    position: absolute;
+    left: 120px;
+    bottom: 80px;
+}
+
+.side{
+    font-size: 13px;
+    font-weight: 500;
+    position: fixed;
+    right: 30px;
+    bottom: 100px;
+}
+
+.side h3{
+    transform: rotate(-90deg) translate(70px, -65px);
+    transition-duration: 0.2s;
+}
+
+.side h3:hover{
+    color: #ff5b46;
+    cursor: pointer;   
+}
+/* transition-duration: 0.2s;정도를 side의 h3 위로 마우스를 올릴 때 주고싶은데 rotate가 같이 적용된다..!
+   따로 할 수 있는 방법은 없나??? */
+
+.icon_wrap img{
+    width: 15px;
+    height: 16px;
+    margin-top: 20px;
+}
+
+.top_btn{
+    margin-top: 40px;
+    font-size: 18px;
+    font-weight: 900;
+    transform: translateX(-5px);
+}
+
+.top_btn a{
+    transition-duration: 0.2s;
+}
+
+.top_btn a:hover{
+    color: #ff5b46;
+    cursor: pointer;
+}
+
+.pygon{
+    width: 600px;
+    height: 300px;
+    background-color: gray;
+    transform: skewY(20deg);
+    position: absolute;
+}
+
+.pygon_1{
+    top: -40px;
+    left: 900px;
+    /* background-color: white;
+
+    box-shadow: 20px 20px 25px 10px rgba(0, 0, 0, 0.1); */
+    /* box-shadow: x y blur spread color; */
+
+    animation: py_ani_1 50s infinite linear;
+    /* =>마지막 linear는 가속도를 없애기 위해 사용 */
+}
+
+.pygon_1, .pygon_3{
+    background-color: white;
+    box-shadow: 20px 20px 25px 10px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes py_ani_1{
+    0%{
+        transform: rotate(0) skewY(20deg);
+    }
+
+    100%{
+        transform: rotate(360deg) skewY(20deg);
+    }
+}
+
+.pygon_2{
+    top: 300px;
+    left: 200px;
+    z-index: 9;
+
+    animation: py_ani_2 10s infinite alternate;
+    /* 갔다가 다시 돌아오게 하기 위해서 alternate 사용! */
+}
+
+@keyframes py_ani_2{
+    0%{
+        top: 300px;
+    }
+
+    100%{
+        top: 100px;
+    }
+}
+
+.pygon_3{
+    top: 50%;
+    left: 50%;
+    transform: skew(-20deg);
+    animation: py_ani_3 10s infinite linear alternate;
+}
+
+@keyframes py_ani_3{
+    0%{
+        top: 50%;
+        left: 50%;    
+    }
+
+    50%{
+        top: 40%;
+        left: 60%;
+    }
+
+    100%{
+        top: 50%;
+        left: 70%;
+    }
+}
